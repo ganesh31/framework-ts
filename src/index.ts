@@ -1,6 +1,7 @@
 import { User } from "./models/User";
 
+const collection = User.buildUserCollection();
 
-const user = new User({ name: "new record", age: 3 });
+collection.on('change', () => console.log(collection));
 
-user.save();
+collection.fetch();
